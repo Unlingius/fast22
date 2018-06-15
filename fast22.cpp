@@ -1,5 +1,6 @@
 
 
+
 void SaveBMP1(char * filename, uchar * ptr, int width, int height)
 {
 	FILE * vstream = fopen(filename,"wb");			
@@ -6128,6 +6129,7 @@ int main()
 	// в градации серого
 	im3to1(ptr, ptr1, w*h);
 
+	// применяем детектор
 	vector<int> cx;
 	vector<int> cy;
 	FAST(ptr1, w, h, cx, cy, 70, true);
@@ -6140,6 +6142,6 @@ int main()
 	im1to3(ptr1,ptr3,w*h);
 
 	// сохраним
-	SaveBMP1("out2.bmp", ptr3, w, h);
+	SaveBMP1("out.bmp", ptr3, w, h);
 	return 0;
 }
